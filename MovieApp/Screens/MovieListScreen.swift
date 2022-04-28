@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieListScreen: View {
     
+    //View model for movie list which work is to get data for movies model
     @StateObject private var movieListVM = MovieListViewModel()
     @State private var isPresented: Bool = false
     var body: some View {
@@ -23,6 +24,7 @@ struct MovieListScreen: View {
             isPresented = true 
         })
         .sheet(isPresented: $isPresented, onDismiss: {
+            //Every time screen get presented when we dissmiss from add movie controller on dismiss will get call so we need to get al movies as we have added a new movie in DB
             movieListVM.getAllMoview()
         },  content: {
             AddMovieScreen()
@@ -46,6 +48,7 @@ struct MovieListScreen_Previews: PreviewProvider {
 struct MovieCell: View {
     
     
+    // Passing single movie to the cell and rendring it on UI
     let movie: MovieViewModel
     
     var body: some View {

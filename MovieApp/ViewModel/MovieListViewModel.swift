@@ -9,6 +9,7 @@ import Foundation
 class MovieListViewModel : ObservableObject {
     
     
+    //Get all the movies for Movie List
    @Published  var movies = [MovieViewModel]()
     
     func getAllMoview(){
