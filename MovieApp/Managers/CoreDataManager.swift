@@ -26,4 +26,12 @@ class CoreDataManager {
             }
         }
     }
+    
+    func save(){
+        do {
+            try persitanceContaner.viewContext.save()
+        } catch {
+            print("failed to save the movie \(error)")
+        }
+    }
 }
