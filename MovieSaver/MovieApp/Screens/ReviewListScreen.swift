@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReviewListScreen: View {
-    
+    let movie: MovieViewModel
     @State private var isPresented: Bool = false
     var body: some View {
         VStack {
@@ -24,13 +24,20 @@ struct ReviewListScreen: View {
             }
         }.navigationTitle("Movie Title")
             .navigationBarItems(trailing: Button("Add new Review") {
+                
                 isPresented = true
-            }).embedInNavigationView()
+            }).sheet(isPresented: $isPresented) {
+                
+            } content: {
+                AddReviewScreen(movie: movie)
+            }
+
     }
 }
 
 struct ReviewListScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewListScreen()
+        let movie = MovieViewModel(movie: Movie(context: CoreDataManager.shared.persitanceContaner.viewContext))
+        ReviewListScreen(movie: movie).embedInNavigationView()
     }
 }
