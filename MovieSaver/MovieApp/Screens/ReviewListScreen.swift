@@ -10,19 +10,21 @@ import SwiftUI
 struct ReviewListScreen: View {
     let movie: MovieViewModel
     @State private var isPresented: Bool = false
+    @StateObject private var reviewListVM = ReviewListViewModel()
     var body: some View {
         VStack {
             
-            List(0...20, id:\.self) { index in
+            List(reviewListVM.reviews, id:\.reviewID) { review in
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Review")
+                        Text(review.title)
+                        Spacer()
+                        Text(review.text).font(.caption)
                     }
                     Spacer()
-                    Text("Review published Dare")
                 }
             }
-        }.navigationTitle("Movie Title")
+        }.navigationTitle(movie.title)
             .navigationBarItems(trailing: Button("Add new Review") {
                 
                 isPresented = true
@@ -30,6 +32,8 @@ struct ReviewListScreen: View {
                 
             } content: {
                 AddReviewScreen(movie: movie)
+            }.onAppear {
+                reviewListVM.getReviewByMovie(vm: movie)
             }
 
     }

@@ -22,6 +22,7 @@
 		FA42289C281B2039003E31E5 /* AddReviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42289B281B2039003E31E5 /* AddReviewScreen.swift */; };
 		FA42289E281B20EB003E31E5 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42289D281B20EB003E31E5 /* AddReviewViewModel.swift */; };
 		FA4228A0281B20F3003E31E5 /* ReviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42289F281B20F3003E31E5 /* ReviewListViewModel.swift */; };
+		FA7D8C41281B2F2300D4C908 /* Review+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D8C40281B2F2300D4C908 /* Review+Extension.swift */; };
 		FAC94A69281A9AA2009B1C3B /* MovieCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC94A67281A9AA2009B1C3B /* MovieCoreDataModel.xcdatamodeld */; };
 		FAC94A6B281AA461009B1C3B /* AddMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC94A6A281AA461009B1C3B /* AddMovieViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		FA42289B281B2039003E31E5 /* AddReviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewScreen.swift; sourceTree = "<group>"; };
 		FA42289D281B20EB003E31E5 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		FA42289F281B20F3003E31E5 /* ReviewListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewModel.swift; sourceTree = "<group>"; };
+		FA7D8C40281B2F2300D4C908 /* Review+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+Extension.swift"; sourceTree = "<group>"; };
 		FAC94A68281A9AA2009B1C3B /* MovieApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieApp.xcdatamodel; sourceTree = "<group>"; };
 		FAC94A6A281AA461009B1C3B /* AddMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddMovieViewModel.swift; path = MovieApp/ViewModel/AddMovieViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 		FA422891281B1A85003E31E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA7D8C40281B2F2300D4C908 /* Review+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				FA42289E281B20EB003E31E5 /* AddReviewViewModel.swift in Sources */,
 				FA4228A0281B20F3003E31E5 /* ReviewListViewModel.swift in Sources */,
 				FAC94A69281A9AA2009B1C3B /* MovieCoreDataModel.xcdatamodeld in Sources */,
+				FA7D8C41281B2F2300D4C908 /* Review+Extension.swift in Sources */,
 				FA42289C281B2039003E31E5 /* AddReviewScreen.swift in Sources */,
 				FA422890281AF7D4003E31E5 /* MovieViewModel.swift in Sources */,
 				8D5C25D025E6FA7C002BAF40 /* RatingView.swift in Sources */,
