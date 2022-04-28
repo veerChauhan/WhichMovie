@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+
+//Craete a model for all the data of each Movie
 struct MovieViewModel {
     
     let movie: Movie
