@@ -47,4 +47,23 @@ class CoreDataManager {
             print("failed to save the movie \(error)")
         }
     }
+    
+    func deleteMoview(_ movie: Movie) {
+        persitanceContaner.viewContext.delete(movie)
+        do{
+            try persitanceContaner.viewContext.save()
+        } catch {
+            persitanceContaner.viewContext.rollback()
+            print("Some thing wrong happend Rolling back the error is \(error.localizedDescription)")
+        }
+    }
+    
+    func getMovieByID(with id: NSManagedObjectID) -> Movie?{
+        do{
+            return try persitanceContaner.viewContext.existingObject(with: id) as? Movie
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
 }
