@@ -37,8 +37,7 @@ class CoreDataManager {
             print("There is no movie in Entity")
             return []
         }
-        
-        
+
     }
     func save(){
         do {
