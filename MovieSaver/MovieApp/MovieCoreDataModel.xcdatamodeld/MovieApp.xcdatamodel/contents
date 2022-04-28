@@ -5,13 +5,16 @@
         <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="releaseDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="movie" inverseEntity="Review"/>
     </entity>
-    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+    <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
+        <attribute name="publishedAt" attributeType="Date" defaultDateTimeInterval="672867000" usesScalarValueType="NO"/>
+        <attribute name="text" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="reviews" inverseEntity="Movie"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="Person" positionX="-63" positionY="9" width="128" height="59"/>
+        <element name="Movie" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Review" positionX="-27" positionY="54" width="128" height="89"/>
     </elements>
 </model>

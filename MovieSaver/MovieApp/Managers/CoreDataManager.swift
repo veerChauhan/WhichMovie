@@ -39,10 +39,13 @@ class CoreDataManager {
         }
 
     }
+    
+    // save data to persistance container [CORE DATA ENTITY]
     func save(){
         do {
             try persitanceContaner.viewContext.save()
         } catch {
+            persitanceContaner.viewContext.rollback()
             print("failed to save the movie \(error)")
         }
     }

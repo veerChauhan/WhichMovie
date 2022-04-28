@@ -25,7 +25,9 @@ struct MovieListScreen: View {
     var body: some View {
         List {
             ForEach(movieListVM.movies, id:\.id) { movie in
-                MovieCell(movie: movie)
+                NavigationLink(destination: ReviewListScreen(movie:movie)) {
+                    MovieCell(movie: movie)
+                }
             }.onDelete(perform: deleteMovie)
             
         }.listStyle(PlainListStyle())

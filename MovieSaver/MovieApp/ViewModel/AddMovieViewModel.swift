@@ -20,10 +20,12 @@ class AddmoviewViewModel: ObservableObject {
     func save() {
         let manager = CoreDataManager.shared
         let movie = Movie(context: manager.persitanceContaner.viewContext)
+        
         movie.title = title
         movie.director = director
         movie.rating = Double(rating ?? 0)
         movie.releaseDate = releaseDate
         manager.save()
+        
     }
 }
