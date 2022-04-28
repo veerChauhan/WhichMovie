@@ -10,7 +10,6 @@ import SwiftUI
 struct MovieListScreen: View {
     
     @State private var isPresented: Bool = false
-    
     var body: some View {
         List {
             Text("Movies")
