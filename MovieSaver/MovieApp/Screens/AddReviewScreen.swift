@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct AddReviewScreen: View {
-    @State private var title: String = ""
-    @State private var text: String = ""
+    @StateObject private var addReviewVm = AddReviewViewModel()
+    @Environment(\.presentationMode) var presentationMode
 
+    let movie:MovieViewModel
     var body: some View {
         Form {
-            TextField("Enter the title", text: $title)
-            TextEditor(text: $text)
+            TextField("Enter the title", text: $addReviewVm.text)
+            TextEditor(text: $addReviewVm.text)
             HStack {
                 Spacer()
                 Button("Save") {
-                    
+                    addReviewVm.addReviewForMovie(vm: movie)
+                    presentationMode.wrappedValue.dismiss()
                 }
                 Spacer()
             }
@@ -29,6 +31,7 @@ struct AddReviewScreen: View {
 
 struct AddReviewScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddReviewScreen()
+        let movie = MovieViewModel(movie: Movie(context: CoreDataManager.shared.persitanceContaner.viewContext))
+        AddReviewScreen(movie: movie)
     }
 }

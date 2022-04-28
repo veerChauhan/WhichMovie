@@ -45,6 +45,7 @@ class CoreDataManager {
         do {
             try persitanceContaner.viewContext.save()
         } catch {
+            persitanceContaner.viewContext.rollback()
             print("failed to save the movie \(error)")
         }
     }
