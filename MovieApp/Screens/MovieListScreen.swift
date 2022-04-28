@@ -13,7 +13,6 @@ struct MovieListScreen: View {
     
     var body: some View {
         List {
-            
             Text("Movies")
             
         }.listStyle(PlainListStyle())
