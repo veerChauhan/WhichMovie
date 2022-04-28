@@ -26,7 +26,20 @@ class CoreDataManager {
             }
         }
     }
-    
+
+    func getAllMovies() -> [Movie] {
+        
+        //Strongly typed as we say the request for fetch is of Movie entity 
+        let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
+        do {
+            return try persitanceContaner.viewContext.fetch(fetchRequest)
+        } catch {
+            print("There is no movie in Entity")
+            return []
+        }
+        
+        
+    }
     func save(){
         do {
             try persitanceContaner.viewContext.save()
