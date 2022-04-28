@@ -31,7 +31,7 @@ struct AddMovieScreen: View {
             HStack {
                 Spacer()
                 Button("Save") {
-                    
+        
                 }
                 Spacer()
             }
