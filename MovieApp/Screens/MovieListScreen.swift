@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MovieListScreen: View {
     
+    @StateObject private var movieListVM = MovieListViewModel()
     @State private var isPresented: Bool = false
     var body: some View {
         List {
-            Text("Movies")
+            ForEach(movieListVM.movies, id:\.id) { movie in
+                MovieCell(movie: movie)
+            }
             
         }.listStyle(PlainListStyle())
         .navigationTitle("Movies")
@@ -20,14 +23,14 @@ struct MovieListScreen: View {
             isPresented = true 
         })
         .sheet(isPresented: $isPresented, onDismiss: {
-            
+            movieListVM.getAllMoview()
         },  content: {
             AddMovieScreen()
         })
         .embedInNavigationView()
         
         .onAppear(perform: {
-            
+            movieListVM.getAllMoview()
         })
     }
 }
@@ -43,18 +46,20 @@ struct MovieListScreen_Previews: PreviewProvider {
 struct MovieCell: View {
     
     
+    let movie: MovieViewModel
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {
-                Text("movie.title")
+                Text(movie.title)
                     .fontWeight(.bold)
-                Text("movie.director")
+                Text(movie.director)
                     .font(.caption2)
-                Text("movie.releaseDate ?? ")
+                Text("\(movie.releaseDate)")
                     .font(.caption)
             }
             Spacer()
-            RatingView(rating: .constant(2))
+            RatingView(rating: .constant(movie.rating))
         }
     }
 }
