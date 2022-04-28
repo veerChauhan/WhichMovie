@@ -12,11 +12,21 @@ struct MovieListScreen: View {
     //View model for movie list which work is to get data for movies model
     @StateObject private var movieListVM = MovieListViewModel()
     @State private var isPresented: Bool = false
+    private func deleteMovie(at IndexSet: IndexSet){
+        IndexSet.forEach { index in
+            let movie = movieListVM.movies[index]
+            // delete the movie
+            movieListVM.deleteMovie(movie)
+            
+            // get all the movie
+            movieListVM.getAllMoview()
+        }
+    }
     var body: some View {
         List {
             ForEach(movieListVM.movies, id:\.id) { movie in
                 MovieCell(movie: movie)
-            }
+            }.onDelete(perform: deleteMovie)
             
         }.listStyle(PlainListStyle())
         .navigationTitle("Movies")
