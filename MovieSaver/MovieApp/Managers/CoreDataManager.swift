@@ -39,6 +39,8 @@ class CoreDataManager {
         }
 
     }
+    
+    // save data to persistance container [CORE DATA ENTITY]
     func save(){
         do {
             try persitanceContaner.viewContext.save()
